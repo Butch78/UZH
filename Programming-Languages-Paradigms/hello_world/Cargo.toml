@@ -1,5 +1,5 @@
 [package]
-name = "rustapp-helloworld-debug"
+name = "hello_world"
 version = "0.1.0"
 edition = "2021"
 
