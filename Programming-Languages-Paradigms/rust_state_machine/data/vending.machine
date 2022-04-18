@@ -1,0 +1,49 @@
+# For stylistic reasons, we use octothorpes here to
+# indicate comments, but it's not necessary.
+
+Anything outside valid definitions is ignored!
+
+# The machine file consists of state and transition
+# definitions. These definitions don't need to appear
+# in any particular order.
+
+# A state definition starts with an @ symbol.
+# For exactly one state, the @ must be followed by
+# a * symbol, indicating that this is the starting state.
+# For one or more states, the @ must be followed by
+# a + symbol, indicating that this is an end state.
+# The state definition itself is just an arbitrary character
+# sequence enclosed in { and }. Anything between these two
+# characters (including newlines) shall be printed on
+# screen when the state is entered. You can assume
+# that { and } will not appear inside the state text.
+
+
+@*Ready{ You are standing in front of the vending machine
+ [Pay] Put some money into the machine
+ [Exit] Leave the machine}
+
+
+
+
+> Ready (Pay) Select: You put some money into the machine
+# Transition syntax doesn't care about whitespace before the colon:
+>Ready  (Exit)Exit   : You're not thirsty right now
+
+
+@Select{ The machine is ready to accept your choice
+ [Cancel] Hit the reset button
+ [Choose beverage] Select a beverage }
+> Select (Cancel) Ready: You cancel the transaction
+
+# Note that parameters themselves can contain whitespace
+> Select (Choose beverage) Dispense: You select a beverage
+@Dispense{ Your choice has been dropped into the chute
+ [Take] Take the beverage from the chute }
+> Dispense (Take) Ready: You remove the beverage from the chute
+
+# Reaching this state will end the program
+@+Exit{
+ Good bye! } Note that this sentence here is also just another comment
+because it is outside of any state or transition definition.
+

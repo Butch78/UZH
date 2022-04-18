@@ -1,0 +1,7 @@
+# This file declares multiple start (*) states
+
+@*Start{Initial state. Type 'end' to quit}
+@+End{Bye bye}
+@*AlsoStart{Initial state. Type 'end' to quit}
+
+> Start (end) End: end

@@ -1,0 +1,6 @@
+# This file contains a syntax error in the transition definition
+
+@*Start{Initial state. Type 'end' to quit}
+@+End{Bye bye}
+
+> (end) End: end

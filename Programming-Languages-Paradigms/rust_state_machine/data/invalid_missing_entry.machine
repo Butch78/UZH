@@ -1,0 +1,6 @@
+# This file is missing a state definition for 'End'
+
+@*Start{Initial state. Type 'end' to quit}
+@+Quit{Bye bye} # this should be called "End"
+
+> Start (end) End: end # or this should refer to "Quit"
