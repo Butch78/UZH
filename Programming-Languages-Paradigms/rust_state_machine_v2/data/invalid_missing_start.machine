@@ -1,0 +1,6 @@
+# This file is missing both start (*) and end (+) states
+
+@Start{Initial state. Type 'end' to quit}
+@End{Bye bye}
+
+> Start (end) End: end

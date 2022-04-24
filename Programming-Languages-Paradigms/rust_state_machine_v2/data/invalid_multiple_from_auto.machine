@@ -1,0 +1,9 @@
+# The Start state should only have one transition
+# because it's auto-forwarding
+
+@*!Start{Initial state. Type 'end' to quit}
+@+End{Bye bye}
+@+AlsoEnd{Bye bye}
+
+> Start (end) End: end
+> Start (end) AlsoEnd: end

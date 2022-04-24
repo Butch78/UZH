@@ -1,0 +1,8 @@
+
+@*Peak{You're at the top of the hill. [slide] start sliding!}
+@!Rolling1000{It's a steep slope!}
+@!StillRolling1000{You can't stop!}
+@+Bottom{You're at the bottom of the hill}
+>Peak (slide) Rolling: You start sliding down the hill
+>Rolling (slide) StillRolling: You're still sliding down the hill
+>StillRolling (slide) Bottom: You reached the bottom!
