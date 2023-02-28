@@ -74,4 +74,31 @@ class Chef:
             self.tokenizer.batch_decode(generated, skip_special_tokens=False),
             self.special_tokens,
         )
+
+        for text in generated_recipe:
+            sections = text.split("\n")
+            for section in sections:
+                section = section.strip()
+                if section.startswith("title:"):
+                    section = section.replace("title:", "")
+                    headline = "TITLE"
+                elif section.startswith("ingredients:"):
+                    section = section.replace("ingredients:", "")
+                    headline = "INGREDIENTS"
+                elif section.startswith("directions:"):
+                    section = section.replace("directions:", "")
+                    headline = "DIRECTIONS"
+
+                if headline == "TITLE":
+                    print(f"[{headline}]: {section.strip().capitalize()}")
+                else:
+                    section_info = [
+                        f"  - {i+1}: {info.strip().capitalize()}"
+                        for i, info in enumerate(section.split("--"))
+                    ]
+                    print(f"[{headline}]:")
+                    print("\n".join(section_info))
+
+            print("-" * 130)
+
         return generated_recipe
