@@ -51,9 +51,9 @@ class Chef:
             new_texts.append(text)
 
         return new_texts
+    
 
     def generation_function(self, texts):
-        print("Generation started..")
         _inputs = texts if isinstance(texts, list) else [texts]
         inputs = [self.prefix + inp for inp in _inputs]
         inputs = self.tokenizer(
@@ -66,12 +66,11 @@ class Chef:
 
         input_ids = inputs.input_ids
         attention_mask = inputs.attention_mask
-        print("Generation started2..")
+
         output_ids = self.model.generate(
             input_ids=input_ids, attention_mask=attention_mask, **self.generation_kwargs
         )
         generated = output_ids.sequences
-        print("Generation postprocessing..")
         generated_recipe = self.target_postprocessing(
             self.tokenizer.batch_decode(generated, skip_special_tokens=False),
             self.special_tokens,
@@ -93,6 +92,7 @@ class Chef:
 
                 if headline == "TITLE":
                     print(f"[{headline}]: {section.strip().capitalize()}")
+                    
                 else:
                     section_info = [
                         f"  - {i+1}: {info.strip().capitalize()}"

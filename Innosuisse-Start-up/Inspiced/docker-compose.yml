@@ -1,0 +1,26 @@
+version: '3.8'
+
+volumes:
+  base-data:
+
+services:
+  index:
+    restart: always
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        env: ${ENV}
+    ports:
+      - "8000:8000"
+    command: |
+        bash -c "
+        export PYTHONPATH="$PYTHONPATH:/src"
+        uvicorn main:app --reload --workers 1 --host 0.0.0.0 --port 8000 --log-config=logconfig.yml"
+    environment:
+      - PYTHONUNBUFFERED=0
+    volumes:
+      - base-data:/data
+      - ./:/src

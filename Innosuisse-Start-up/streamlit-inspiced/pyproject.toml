@@ -1,17 +1,16 @@
 [tool.poetry]
-name = "inspiced"
+name = "streamlit-inspiced"
 version = "0.1.0"
-description = "A Hugging Face Application"
+description = ""
 authors = ["Butch78 <matthewtyleraylward@hotmail.com>"]
 license = "MIT"
 readme = "README.md"
+packages = [{include = "streamlit_inspiced"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+streamlit = "^1.19.0"
 transformers = "^4.26.1"
-fastapi = "^0.92.0"
-uvicorn = "^0.20.0"
-flax = "^0.6.6"
 
 
 [tool.poetry.group.dev.dependencies]

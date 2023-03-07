@@ -7,12 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from chef_transformer import Chef
 
-app = FastAPI()
-
-
-@app.get("/")
-async def hello():
-    return {"message": "Hello World"}
+app = FastAPI(title="Inspiced", description="Recipe generation API")
 
 
 @app.post("/generate")
